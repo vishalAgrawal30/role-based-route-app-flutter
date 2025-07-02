@@ -35,4 +35,8 @@ class EmpAddPresenter {
   Future<UserModel?> getUserById(int id) async {
     return await dao.getEmployeeById(id); // implement this in your DAO
   }
+
+  Future<bool> isEmailExists(String email) async {
+    return await dao.checkEmailExists(email);
+  }
 }

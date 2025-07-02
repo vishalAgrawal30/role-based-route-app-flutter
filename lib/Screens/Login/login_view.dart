@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen>
   @override
   void initState() {
     super.initState();
-    _presenter = LoginPresenter(this);
+    _presenter = LoginPresenter(this, context);
   }
 
   @override

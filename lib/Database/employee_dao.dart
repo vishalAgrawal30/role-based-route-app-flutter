@@ -131,4 +131,14 @@ class EmployeeDao {
       throw Exception("Error to Clean Employee Table:${e.toString()}");
     }
   }
+
+  Future<bool> checkEmailExists(String email) async {
+    final db = await dbRef.getDB();
+    final result = await db.query(
+      Constants.TABLE_USERS,
+      where: '${Constants.COLUMN_EMAIL} = ?',
+      whereArgs: [email],
+    );
+    return result.isNotEmpty;
+  }
 }

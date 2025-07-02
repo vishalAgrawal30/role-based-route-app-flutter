@@ -25,7 +25,7 @@ class _EmpAddEditViewState extends State<EmpAddEditView>
   final _formKey = GlobalKey<FormState>();
   late EmpAddPresenter presenter;
   bool isUpdate = false;
-  late UserModel? exisUser;
+  UserModel? exisUser;
 
   File? _profileImage;
   bool _isCompressing = false;
@@ -71,14 +71,29 @@ class _EmpAddEditViewState extends State<EmpAddEditView>
   final List<String> _cities = ['New York', 'London', 'Mumbai', 'Tokyo'];
   final List<String> _roles = ['admin', 'employee'];
 
-  void _submitForm() {
+  void _submitForm() async {
     if (_formKey.currentState!.validate()) {
-      if (_gender == null || _selectedCity == null || _selectedDob == null) {
-        _showAlert(
-          context,
-          "Please fill all fields including gender, city and DOB.",
-        );
+      if (_gender == null) {
+        _showSimpleAlert(context, "Please fill gender");
         return;
+      }
+      if (_selectedCity == null) {
+        _showSimpleAlert(context, "Please fill city");
+        return;
+      }
+      if (_selectedDob == null) {
+        _showSimpleAlert(context, "Please fill DOB.");
+        return;
+      }
+
+      if (!isUpdate) {
+        final emailExist = await presenter.isEmailExists(
+          _emailController.text.toString(),
+        );
+        if (emailExist) {
+          _showSimpleAlert(context, "Email Address is Already Exist");
+          return;
+        }
       }
 
       final String newPassword = _passwordController.text.trim();
@@ -115,11 +130,13 @@ class _EmpAddEditViewState extends State<EmpAddEditView>
   }
 
   Future<void> _pickDate() async {
+    final now = DateTime.now();
+    final dateAllowed = DateTime(now.year - 18, now.month, now.day);
     final picked = await showDatePicker(
       context: context,
-      initialDate: DateTime(2000),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
+      initialDate: dateAllowed,
+      firstDate: DateTime(1950),
+      lastDate: dateAllowed,
     );
     if (picked != null) {
       setState(() => _selectedDob = picked);
@@ -190,6 +207,24 @@ class _EmpAddEditViewState extends State<EmpAddEditView>
     );
   }
 
+  void _showSimpleAlert(BuildContext context, String message) {
+    showDialog(
+      context: context,
+      builder:
+          (_) => AlertDialog(
+            title: const Text("Info"),
+            content: Text(message),
+            actions: [
+              TextButton(
+                onPressed:
+                    () => Navigator.of(context).pop(), // just close alert
+                child: const Text("OK"),
+              ),
+            ],
+          ),
+    );
+  }
+
   void _showLoader(BuildContext context, String message) {
     showDialog(
       barrierDismissible: false,
@@ -248,8 +283,18 @@ class _EmpAddEditViewState extends State<EmpAddEditView>
                     controller: _emailController,
                     decoration: const InputDecoration(labelText: 'Email'),
                     keyboardType: TextInputType.emailAddress,
-                    validator:
-                        (value) => value!.isEmpty ? 'Please enter email' : null,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter email';
+                      }
+                      final emailRegex = RegExp(
+                        r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                      );
+                      if (!emailRegex.hasMatch(value)) {
+                        return 'Enter a valid email address';
+                      }
+                      return null;
+                    },
                   ),
                   if (!isUpdate)
                     TextFormField(

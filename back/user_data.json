@@ -4,19 +4,19 @@
       "email": "admin@gmail.com",
       "password": "$2a$10$1heI6KYz1R6.MGR3I15t2ei0hze3/.ofEMxcZGqztFUxVRPDPZ72.",
       "id": 1,
-      "userName": "admin",
+      "userName": "admin 12",
       "address": "sarbhon",
       "city": "Mumbai",
       "gender": "Male",
       "dob": "2000-01-09T00:00:00.000",
-      "profileImagePath": "/data/user/0/com.example.role_based_auth_app/cache/compressed_1000099184.jpg",
+      "profileImagePath": "/data/user/0/com.example.role_based_auth_app/cache/compressed_1000090882.jpg",
       "role": "admin"
     },
     {
       "email": "virat@gmail.com",
       "password": "$2a$10$MDYrTzpFsKFCnH9J34LB6OdS6XBrsX76UH72a23yyZh44IBCvjfVS",
       "id": 2,
-      "userName": "virat kumar 12 demo",
+      "userName": "virat",
       "address": "chitra",
       "city": "Mumbai",
       "gender": "Male",
@@ -33,7 +33,31 @@
       "city": "New York",
       "gender": "Male",
       "dob": "2000-01-11T00:00:00.000",
-      "profileImagePath": "/data/user/0/com.example.role_based_auth_app/cache/compressed_1000099139.jpg",
+      "profileImagePath": "/data/user/0/com.example.role_based_auth_app/cache/compressed_1000099160.jpg",
+      "role": "employee"
+    },
+    {
+      "email": "raj@gmail.com",
+      "password": "$2a$10$qQfW7dkZup/Sp1otsFXh8OVR.HBbSV6lKmybqE5ciPsf3vjNKnZL6",
+      "id": 4,
+      "userName": "raj",
+      "address": "ffd",
+      "city": "New York",
+      "gender": "Male",
+      "dob": "2000-01-23T00:00:00.000",
+      "profileImagePath": null,
+      "role": "employee"
+    },
+    {
+      "email": "vishal12@gmail.com",
+      "password": "$2a$10$v1AliymasdWOUqDF7mZ26.PNSoEQLGbSNyBlYrc7WvDFCUVOtQ5Ti",
+      "id": 5,
+      "userName": "raj",
+      "address": "sjs",
+      "city": "Tokyo",
+      "gender": "Female",
+      "dob": "2022-01-29T00:00:00.000",
+      "profileImagePath": null,
       "role": "employee"
     }
   ]

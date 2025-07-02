@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_local_variable
 
 import 'dart:io';
 
@@ -77,7 +77,7 @@ class _DashboardScreenState extends State<DashboardScreen>
   @override
   Widget build(BuildContext context) {
     final globalUser = Provider.of<UserProvider>(context, listen: true).user;
-    print("From Dashboard User Name:${globalUser?.userName}");
+    print("From Dashboard User Name:${_currentUser?.userName}");
     return Scaffold(
       appBar: AppBar(
         title: const Text("Dashboard"),
@@ -105,7 +105,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ),
                 // SizedBox(width: 5),
                 Text(
-                  "Welcome, ${_currentUser!.userName.toUpperCase()} 👋",
+                  "Welcome, ${_currentUser?.userName.toUpperCase()} 👋",
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
