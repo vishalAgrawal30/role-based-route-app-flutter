@@ -1,0 +1,76 @@
+Project Name:Role Based Access System
+
+packages:
+http: ^1.4.0
+provider: ^6.1.5
+shared_preferences: ^2.5.3
+jwt_decoder: ^2.0.1
+flutter_secure_storage: ^9.2.4
+intl: ^0.20.2
+sqflite: ^2.4.2
+firebase package
+firebase_messaging: ^15.2.7
+firebase_core: ^3.14.0
+flutter_local_notifications: ^19.3.0
+
+How to set The Firebase:
+
+1.Go to Firebase Console
+
+2.Create project → Add Android/iOS app
+
+3.Download google-services.json (Android) or GoogleService-Info.plist (iOS)
+
+4.Place the files:
+
+  Android: android/app/google-services.json
+
+  iOS: ios/Runner/GoogleService-Info.plist
+
+5.Configure platform-specific files:
+
+  Android: Update android/build.gradle & android/app/build.gradle
+
+  iOS: Configure ios/Runner/Info.plist
+
+6.Initialize Firebase in your main.dart
+"
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
+"
+
+Error:
+ A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
+   > An issue was found when checking AAR metadata:
+
+       1.  Dependency ':flutter_local_notifications' requires core library desugaring to be enabled
+           for :app.
+
+Solution: Enable Java 8 (or higher) in android/app/build.gradle
+  compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+        // Enable desugaring
+        coreLibraryDesugaringEnabled true
+    }
+
+    Step 2: Add the desugaring library to dependencies
+    dependencies {
+    ...
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
+}
+
+
+
+
+
+we use Json-server to serer the api for the /users
+but for the auth of user it is not support.
+in this case we use Json-server-auth.
+
+to Run json-server we use -->json-server --watch user_data.json --port 5000
+to run json-server with json-server-auth 
+-->json-server user_data.json -m ./node_modules/json-server-auth --port 5000

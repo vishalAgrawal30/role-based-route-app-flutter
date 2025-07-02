@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$1heI6KYz1R6.MGR3I15t2ei0hze3/.ofEMxcZGqztFUxVRPDPZ72.",
+      "id": 1,
+      "userName": "admin",
+      "address": "sarbhon",
+      "city": "Mumbai",
+      "gender": "Male",
+      "dob": "2000-01-09T00:00:00.000",
+      "profileImagePath": "/data/user/0/com.example.role_based_auth_app/cache/compressed_1000099184.jpg",
+      "role": "admin"
+    },
+    {
+      "email": "virat@gmail.com",
+      "password": "$2a$10$MDYrTzpFsKFCnH9J34LB6OdS6XBrsX76UH72a23yyZh44IBCvjfVS",
+      "id": 2,
+      "userName": "virat kumar 12 demo",
+      "address": "chitra",
+      "city": "Mumbai",
+      "gender": "Male",
+      "dob": "2000-01-13T00:00:00.000",
+      "profileImagePath": "/data/user/0/com.example.role_based_auth_app/cache/compressed_1000099185.jpg",
+      "role": "employee"
+    },
+    {
+      "email": "vishal@gmail.com",
+      "password": "$2a$10$xQXI42xZ8ciybfxkOtljHeGUboZL8K9jG3LF1p75aLcdnVcZ1TU8i",
+      "id": 3,
+      "userName": "vishal kbb",
+      "address": "bardoli",
+      "city": "New York",
+      "gender": "Male",
+      "dob": "2000-01-11T00:00:00.000",
+      "profileImagePath": "/data/user/0/com.example.role_based_auth_app/cache/compressed_1000099139.jpg",
+      "role": "employee"
+    }
+  ]
+}

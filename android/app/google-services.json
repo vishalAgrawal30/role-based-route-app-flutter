@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1094627595548",
+    "project_id": "rms-flutter-c35cd",
+    "storage_bucket": "rms-flutter-c35cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094627595548:android:fc443d9d836411a67956d9",
+        "android_client_info": {
+          "package_name": "com.example.role_based_auth_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJtSyY-v7enRwHK7K3QEAbpe_BGDP2R0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
