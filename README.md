@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # role_based_auth_app
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# role-based-route-app-flutter
+Dashboard with the Crud Operation of the User with json-server and json-server-auth
+>>>>>>> 2e36460ba610f18d75d65969794e2d1ba49262c3
